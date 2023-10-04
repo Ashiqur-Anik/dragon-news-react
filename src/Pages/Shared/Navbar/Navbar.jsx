@@ -39,7 +39,7 @@ const Navbar = () => {
                     <img className="w-10" src={userImg} alt="" />
                     {
                         user ?
-                            <button onClick={hendelSignOut} className="bg-slate-800 text-white py-2 px-6 rounded-sm normal-case text-lg">Sign out</button>
+                            <button onClick={hendelSignOut} className="bg-slate-800 text-white py-2 px-1 md:px-6 rounded-sm normal-case text-lg">Sign out</button>
                             :
                             <Link to="/login" className="bg-slate-800 text-white py-2 px-6 rounded-sm normal-case text-lg">Login</Link>
                     }

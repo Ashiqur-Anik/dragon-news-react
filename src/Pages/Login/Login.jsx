@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
@@ -7,22 +7,26 @@ import swal from 'sweetalert';
 
 const Login = () => {
 
-    const {login} = useContext(AuthContext)
+    const { login } = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate()
+    console.log(location)
 
     const handleLogin = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const email = form.get('email')
-        const password = form.get('password') 
-        login(email,password)
-        .then(result=>{
-            console.log(result.user)
-            swal("Good job!", "Login Successful!", "success");
-        })
-        .catch(error=>{
-            console.error(error)
-            swal("Error!", "Pleace create account!", "error");
-        })
+        const password = form.get('password')
+        login(email, password)
+            .then(result => {
+                console.log(result.user)
+                swal("Good job!", "Login Successful!", "success");
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                console.error(error)
+                swal("Error!", "Pleace create account!", "error");
+            })
     }
 
 
@@ -31,7 +35,7 @@ const Login = () => {
             <Navbar></Navbar>
             <h1 className="text-center my-10 md:text-4xl text-2xl font-semibold">Login your account</h1>
             <div className=" bg-slate-50 mx-auto min-h-screen lg:w-2/5 md:w-3/5 ">
-                <form onSubmit={handleLogin}  className="bg-slate-200 md:p-10 p-3 m-1" >
+                <form onSubmit={handleLogin} className="bg-slate-200 md:p-10 p-3 m-1" >
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-black text-base">Email Address</span>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
@@ -10,21 +11,28 @@ const auth = getAuth(app);
 
 const AuthProviders = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true)
 
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
+        
     }
 
     const login =(email,password)=>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
     const logOut=()=>{
+        setLoading(true)
         return signOut(auth);
     }
 
     useEffect(() => {
         const unSubsribe = onAuthStateChanged(auth, currentUaer => {
+            setLoading(false)
             setUser(currentUaer);
+            
         })
         return()=>{
             unSubsribe
@@ -33,6 +41,7 @@ const AuthProviders = ({ children }) => {
 
     const authInfo = {
         user,
+        loading, 
         createUser,
         logOut,
         login

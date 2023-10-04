@@ -8,11 +8,11 @@ const RightSideNav = () => {
         <div className='text-center md:text-left' >
             <div >
                 <h1 className="text-2xl font-semibold  mb-5">Login With</h1>
-                <button className=" py-3 px-7 border text-lg font-semibold border-purple-500 bg-purple-100 flex items-center gap-2 mx-auto md:mx-0 mb-2 rounded-md  hover:bg-success">
+                <button className=" py-3 px-7 border text-lg font-semibold border-purple-500 bg-purple-100 flex items-center gap-2 w-full mx-auto md:mx-0 mb-2 rounded-md  hover:bg-success">
                     <FaGoogle className='text-2xl'></FaGoogle>
                     Login With Google
                 </button>
-                <button className=" py-3 px-7 border text-lg font-semibold border-purple-500 bg-purple-100 flex items-center gap-2 mx-auto md:mx-0 rounded-md hover:bg-secondary">
+                <button className=" py-3 px-7 border text-lg font-semibold border-purple-500 bg-purple-100 flex items-center gap-2 mx-auto w-full md:mx-0 rounded-md hover:bg-secondary">
                     <FaGithub className='text-2xl'></FaGithub>
                     Login With GitHub
                 </button>

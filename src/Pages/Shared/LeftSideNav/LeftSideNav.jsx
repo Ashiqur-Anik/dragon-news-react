@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
 const LeftSideNav = () => {
     const [categories, setCategories] = useState([]);
 
@@ -22,6 +21,7 @@ const LeftSideNav = () => {
                     className="block text-xl ml-5 pt-5"
                 >{category.name}</Link>)
             }
+         
         </div>
     );
 };

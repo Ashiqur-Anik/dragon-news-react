@@ -1,13 +1,28 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import swal from 'sweetalert';
+
 
 const Login = () => {
+
+    const {login} = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
-        
-        console.log(form.get('password'))
+        const email = form.get('email')
+        const password = form.get('password') 
+        login(email,password)
+        .then(result=>{
+            console.log(result.user)
+            swal("Good job!", "Login Successful!", "success");
+        })
+        .catch(error=>{
+            console.error(error)
+            swal("Error!", "Pleace create account!", "error");
+        })
     }
 
 

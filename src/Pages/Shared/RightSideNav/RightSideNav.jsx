@@ -7,7 +7,7 @@ const RightSideNav = () => {
     return (
         <div className='text-center md:text-left' >
             <div >
-                <h1 className="text-3xl font-semibold  mb-5">Login With</h1>
+                <h1 className="text-2xl font-semibold  mb-5">Login With</h1>
                 <button className=" py-3 px-7 border text-lg font-semibold border-purple-500 bg-purple-100 flex items-center gap-2 mx-auto md:mx-0 mb-2 rounded-md  hover:bg-success">
                     <FaGoogle className='text-2xl'></FaGoogle>
                     Login With Google
@@ -18,7 +18,7 @@ const RightSideNav = () => {
                 </button>
             </div>
             <div>
-                <h1 className="text-3xl font-semibold mt-10 mb-4">Find Us On</h1>
+                <h1 className="text-2xl font-semibold mt-10 mb-4">Find Us On</h1>
                 <a className='flex pl-4 py-4 gap-4 items-center border-2 rounded-t-xl hover:bg-slate-100' href="">
                     <FaFacebook className='text-2xl text-blue-500'></FaFacebook >
                     Facebook
@@ -33,7 +33,7 @@ const RightSideNav = () => {
                 </a>
             </div>
             <div>
-                <h1 className="text-3xl font-semibold mt-10 mb-4">Q-Zoon</h1>
+                <h1 className="text-2xl font-semibold mt-10 mb-4">Q-Zoon</h1>
                 <div className='bg-slate-200 space-y-10 p-5'>
                     <img className='mx-auto' src={QZone1}alt="" />
                     <img className='mx-auto' src={QZone2}alt="" />
